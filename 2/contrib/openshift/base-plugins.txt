@@ -85,12 +85,19 @@ blueocean:1.10.2
 # 2.4 brought in pipeline-milestone-step
 workflow-aggregator:2.6
 
+
+#
+ssh-agent:1.17
+ssh-slaves:1.29.4
+
 # Github/SCM for configuration
 git-client:2.7.6
 github-api:1.95
 github-oauth:0.31
-git:3.9.3
 git-server:1.7
+#
+scm-api:2.4.1
+scm-sync-configuration:0.0.10
 
 
 # Cloud Service Access plugins

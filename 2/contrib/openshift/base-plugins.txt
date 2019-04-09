@@ -84,3 +84,17 @@ blueocean:1.10.2
 # 2.5 now includes pipeline-model-definition (declaritive pipeline)
 # 2.4 brought in pipeline-milestone-step
 workflow-aggregator:2.6
+
+# Github/SCM for configuration
+git-client:2.7.6
+github-api:1.95
+github-oauth:0.31
+git:3.9.3
+git-server:1.7
+
+
+# Cloud Service Access plugins
+aws-credentials:1.26
+aws-java-sdk:1.11.457
+google-compute-engine:3.0.0
+google-oauth-plugin:0.7

@@ -30,5 +30,3 @@ else
     for FILENAME in /usr/lib/jenkins/*hpi ; do ln -s $FILENAME /opt/openshift/plugins/`basename $FILENAME .hpi`.jpi; done
     chown 1001:0 /usr/lib/jenkins/*hpi
 fi
-
-

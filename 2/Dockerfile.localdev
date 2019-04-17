@@ -39,29 +39,29 @@ ARG CENTOS_GPG_KEY_URL=http://mirror.centos.org/centos-7/7/os/x86_64/RPM-GPG-KEY
 ARG PACKAGES="dejavu-sans-fonts rsync gettext git tar zip unzip openssl bzip2 dumb-init java-1.8.0-openjdk java-1.8.0-openjdk-devel"
 ARG DISABLED_REPOS="--disablerepo=rhel-server-extras --disablerepo=rhel-server --disablerepo=rhel-fast-datapath --disablerepo=rhel-server-optional --disablerepo=rhel-server-ose --disablerepo=rhel-server-rhscl"
 
-ARG RM_FILES="/usr/bin/java
- /usr/bin/jjs
- /usr/bin/keytool
- /usr/bin/orbd
- /usr/bin/pack200
- /usr/bin/policytool
- /usr/bin/rmid
- /usr/bin/rmiregistry
- /usr/bin/servertool
- /usr/bin/tnameserv
- /usr/bin/unpack200
- /usr/lib/jvm-exports/jre
- /usr/share/man/man1/java.1.gz
- /usr/share/man/man1/jjs.1.gz
- /usr/share/man/man1/keytool.1.gz
- /usr/share/man/man1/orbd.1.gz
- /usr/share/man/man1/pack200.1.gz
- /usr/share/man/man1/policytool.1.gz
- /usr/share/man/man1/rmid.1.gz
- /usr/share/man/man1/rmiregistry.1.gz
- /usr/share/man/man1/servertool.1.gz
- /usr/share/man/man1/tnameserv.1.gz
- /usr/share/man/man1/unpack200.1.gz
+ARG RM_FILES="/usr/bin/java \
+ /usr/bin/jjs \
+ /usr/bin/keytool \
+ /usr/bin/orbd \
+ /usr/bin/pack200 \
+ /usr/bin/policytool \
+ /usr/bin/rmid \
+ /usr/bin/rmiregistry \
+ /usr/bin/servertool \
+ /usr/bin/tnameserv \
+ /usr/bin/unpack200 \
+ /usr/lib/jvm-exports/jre \
+ /usr/share/man/man1/java.1.gz \
+ /usr/share/man/man1/jjs.1.gz \
+ /usr/share/man/man1/keytool.1.gz \
+ /usr/share/man/man1/orbd.1.gz \
+ /usr/share/man/man1/pack200.1.gz \
+ /usr/share/man/man1/policytool.1.gz \
+ /usr/share/man/man1/rmid.1.gz \
+ /usr/share/man/man1/rmiregistry.1.gz \
+ /usr/share/man/man1/servertool.1.gz \
+ /usr/share/man/man1/tnameserv.1.gz \
+ /usr/share/man/man1/unpack200.1.gz \
 "
 
 RUN curl $EPEL7_REPO_URL -o /etc/yum.repos.d/epel7.repo && \
@@ -88,7 +88,7 @@ RUN /usr/local/bin/install-jenkins-core-plugins.sh /opt/openshift/base-plugins.t
     chmod 775 /usr/share/man/man1 && \
     mkdir -p /var/lib/origin && \
     chmod 775 /var/lib/origin && \
-    (for FILE in "${RM_FILES}" ; do unlink FILE ; done) && \
+    (for F in ${RM_FILES} ; do unlink $F ; done) && \
     chown -R 1001:0 /opt/openshift && \
     /usr/local/bin/fix-permissions /opt/openshift && \
     /usr/local/bin/fix-permissions /opt/openshift/configuration/init.groovy.d && \

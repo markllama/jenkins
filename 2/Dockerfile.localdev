@@ -32,7 +32,7 @@ LABEL k8s.io.description="Jenkins is a continuous integration server" \
 # 8080 for main web interface, 50000 for slave agents
 EXPOSE 8080 50000
 
-ARG EPEL7_REPO_URL=https://copr.fedorainfracloud.org/coprs/alsadi/dumb-init/repo/epel-7/alsadi-dumb-init-epel-7.repo
+ARG DUMB_INIT_REPO_URL=https://copr.fedorainfracloud.org/coprs/alsadi/dumb-init/repo/epel-7/alsadi-dumb-init-epel-7.repo
 ARG CENTOS_BASE_REPO_URL=https://raw.githubusercontent.com/cloudrouter/centos-repo/master/CentOS-Base.repo
 ARG CENTOS_GPG_KEY_URL=http://mirror.centos.org/centos-7/7/os/x86_64/RPM-GPG-KEY-CentOS-7
 
@@ -64,7 +64,7 @@ ARG RM_FILES="/usr/bin/java \
  /usr/share/man/man1/unpack200.1.gz \
 "
 
-RUN curl $EPEL7_REPO_URL -o /etc/yum.repos.d/epel7.repo && \
+RUN curl $DUMB_INIT_REPO_URL -o /etc/yum.repos.d/dumb-init.repo && \
     curl $CENTOS_BASE_REPO_URL -o /etc/yum.repos.d/CentOS-Base.repo && \
     curl $CENTOS_GPG_KEY_URL -o /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 && \
     yum $DISABLED_REPOS -y --setopt=tsflags=nodocs install $PACKAGES && \
